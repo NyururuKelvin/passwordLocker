@@ -1,3 +1,5 @@
+# First Class
+
 class User:
 
     """
@@ -13,6 +15,28 @@ class User:
 
     def create_account(self):
         User.users_list.append(self)
+
+    @classmethod
+    def user_exist(cls, user_name, password):
+
+        '''
+        Method that checks if a user exists from the users list.
+
+        Args:
+            user_name: user name to search if it exists
+            password: password to search if it exists
+
+        Returns :
+            Boolean: True or false depending if the user exists
+
+        '''
+        for user in cls.users_list:
+            if user.user_name == user_name and user.password == password:
+                return True
+        return False
+
+
+# Second Class
 
 class Credentials:
 
