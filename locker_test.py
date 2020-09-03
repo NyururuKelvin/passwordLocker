@@ -14,71 +14,75 @@ class TestUsers(unittest.TestCase):
 
     '''
 
-def tearDown(self):
+    def tearDown(self):
 
-    '''
-    tearDown method to run after each test  cases.
+        '''
+        tearDown method to run after each test  cases.
 
-    '''
-    User.users_list = []
+        '''
+        User.users_list = []
 
-def setUp(self):
+    def setUp(self):
 
-    '''
-    Set up method to run before each test cases.
+        '''
+        Set up method to run before each test cases.
 
-    '''
-    self.new_user = User("Kelvin", "Kelvin78") # create user object
+        '''
+        self.new_user = User("Kelvin", "Kelvin78") # create user object
 
 
-def test_init(self):
+    def test_init(self):
 
-    '''
-    test_init test case to test if the object is initialized properly
+        '''
+        test_init test case to test if the object is initialized properly
 
-    '''
+        '''
 
-    self.assertEqual(self.new_user.user_name, "Kelvin")
-    self.assertEqual(self.new_user.password, "Kelvin78")
+        self.assertEqual(self.new_user.user_name, "Kelvin")
+        self.assertEqual(self.new_user.password, "Kelvin78")
 
-def test_create_account(self):
+    def test_create_account(self):
 
-    '''
-    test_create_account test case to test if the user object is saved into
-    the user list
+        '''
+        test_create_account test case to test if the user object is saved into
+        the user list
 
-    '''
+        '''
 
-    self.new_user.create_account()
-    self.assertEqual(len(User.users_list), 1)
+        self.new_user.create_account()
+        self.assertEqual(len(User.users_list), 1)
 
-def test_save_multiple_accounts(self):
+    def test_save_multiple_accounts(self):
 
-    '''
-    test_save_multiple_user to check if we can save multiple users
-    objects to our user_list
-    
-    '''
+        '''
+        test_save_multiple_user to check if we can save multiple users
+        objects to our user_list
+        
+        '''
 
-    self.new_user.create_account()
-    test_user = User("Amimo", "Amimo78") #new user
-    test_user.create_account()
-    self.assertEqual(len(User.users_list), 2)
+        self.new_user.create_account()
+        test_user = User("Amimo", "Amimo78") #new user
+        test_user.create_account()
+        self.assertEqual(len(User.users_list), 2)
 
-def test_account_exists(self):
+    def test_account_exists(self):
 
-    '''
-    test to check if we can return a Boolean  if we cannot find the credentials.
-    
-    '''
+        '''
+        test to check if we can return a Boolean  if we cannot find the credentials.
+        
+        '''
 
-    self.new_user.create_account()
-    test_user = User("Amimo", "Amimo78")
-    test_user.create_account()
+        self.new_user.create_account()
+        test_user = User("Amimo", "Amimo78")
+        test_user.create_account()
 
-    user_exists = User.user_exist("Amimo", "Amimo78")
+        user_exists = User.user_exist("Amimo", "Amimo78")
 
-    self.assertTrue(user_exists)
+        self.assertTrue(user_exists)
+
+class TestCredentials(unittest.TestCase):
+
+    pass
 
 
         
