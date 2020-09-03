@@ -64,4 +64,21 @@ def test_save_multiple_accounts(self):
     test_user = User("Amimo", "Amimo78") #new user
     test_user.create_account()
     self.assertEqual(len(User.users_list), 2)
+
+def test_account_exists(self):
+
+    '''
+    test to check if we can return a Boolean  if we cannot find the credentials.
+    
+    '''
+
+    self.new_user.create_account()
+    test_user = User("Amimo", "Amimo78")
+    test_user.create_account()
+
+    user_exists = User.user_exist("Amimo", "Amimo78")
+
+    self.assertTrue(user_exists)
+
+
         
