@@ -10,3 +10,10 @@ class TestUsers(unittest.TestCase):
     Args:
         unittest.TestCase: TestCase class that helps in creating test cases
     '''
+
+def tearDown(self):
+
+    '''
+        tearDown method to run after each test  cases.
+        '''
+        User.users_list = []
