@@ -51,4 +51,17 @@ def test_create_account(self):
 
     self.new_user.create_account()
     self.assertEqual(len(User.users_list), 1)
+
+def test_save_multiple_accounts(self):
+
+    '''
+    test_save_multiple_user to check if we can save multiple users
+    objects to our user_list
+    
+    '''
+
+    self.new_user.create_account()
+    test_user = User("Amimo", "Amimo78") #new user
+    test_user.create_account()
+    self.assertEqual(len(User.users_list), 2)
         
