@@ -156,6 +156,28 @@ class TestCredentials(unittest.TestCase):
 
         self.assertTrue(Credentials_exists)
 
+    def test_display_all_credentials(self):
+
+        '''
+        method that returns a list of all credentials saved
+        '''
+
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+
+    def test_copy_password(self):
+
+        '''
+        test to confirm that we are copying the password from a found account
+        '''
+
+        self.new_credentials.save_credentials()
+        Credentials.copy_password('Instagram')
+
+        self.assertEqual(self.new_credentials.password,pyperclip.paste())
+
+if __name__ == '__main__':
+    unittest.main()
+
 
 
 
