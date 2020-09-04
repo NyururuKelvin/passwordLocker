@@ -1,4 +1,5 @@
 # First Class
+import pyperclip
 
 class User:
 
@@ -118,6 +119,16 @@ class Credentials:
         '''
 
         return cls.credentials_list
+
+    @classmethod
+    def copy_password(cls, account):
+        
+        '''
+        method that copies credential details after the account name is entered.
+        '''
+
+        Credentials_found = Credentials.find_by_account(account)
+        pyperclip.copy(Credentials_found.password)
 
         
 
