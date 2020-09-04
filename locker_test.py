@@ -152,9 +152,11 @@ class TestCredentials(unittest.TestCase):
         test_credentials = Credentials('Test', 'username', 'newpass')
         test_credentials.save_credentials()
 
-         Credentials_exists = Credentials.credentials_exist('Test')
+        Credentials_exists = Credentials.credentials_exist('Test')
 
-         self.assertTrue(Credentials_exists)
+        self.assertTrue(Credentials_exists)
+
+
 
 
 
