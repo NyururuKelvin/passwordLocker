@@ -168,6 +168,91 @@ def main():
                         print('You dont seem to have any credentials saved yet')
                         print('\n')
 
+                elif short_code == 'dl':
+
+                    print('Enter the account you want to delete: ')
+                    search_account = input()
+
+                    if check_existing_credentials(search_account):
+                        search_credentials = find_credentials(account)
+                        print(f'username: {search_credentials.username} password: {search_credentials.password}')
+                        print('-'* 40)
+                        print(f"Do you want to delete {search_account} credentials? Click 'y' to delete or any other letter to skip")
+                        answer = input().lower()
+                        if answer == 'y':
+                            delete_credentials(search_credentials)
+                            print('Account Deleted')
+
+                        else:
+                            print('Skipped')
+
+                    else:
+                        print(f'{search_account} account Credentials do not exist')
+
+                elif short_code == 'fc':
+
+                    print('Enter the number you want to search for')
+
+                    search_account = input()
+                    if check_existing_credentials(search_account):
+                        search_credentials = find_credentials(account)
+                        print(f'username: {search_credentials.username} password: {search_credentials.password}')
+                        print('-'* 20)
+
+                    else:
+                        print(f'{search_account} account Credentials does not exist')
+
+                elif short_code == 'copy':
+
+                    account = input('Enter the site account for the credential password to copy: ')
+                    copy_credential(account)
+                    print('Account removed')
+
+                elif short_code == 'ex':
+                    print(f'Goodbye...{user_name} ...')
+                    break
+
+                else:
+                    print('I really didn\'t get that. Please use the short codes')
+                    print('\n')
+
+            else:
+                print('Wrong username or password.Try again')
+                print('\n')
+
+        elif answer == 's':
+            print("Create new account")
+
+            print('Username: ')
+            user_name = input()
+
+            print('password: ')
+            password = input()
+    
+            save_account(create_account(user_name, password))
+            print(f'Account for {user_name} has been created')
+            print("\n")
+
+        else:
+            print('Invalid Username')
+
+    else:
+        print('Invalid choice!!')
+
+if __name__ == '__main__':
+
+    main()
+            
+
+
+
+
+
+
+
+
+
+
 
 
 
