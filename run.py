@@ -153,6 +153,20 @@ def main():
                     print('\n')
                     print(f'{account} username: {username} password: {password} created successfully')
                     print('-------------------------------------------------------------------------\n')
+                elif short_code == 'vc':
+
+                    if display_credentials():
+                        print('Here is a list of all your credentials')
+                        print('\n')
+
+                        for credentials in display_credentials():
+                            print(f'account: {credentials.account} username: {credentials.username} password: {credentials.password}')
+
+                        print('\n')
+                    else:
+                        print('\n')
+                        print('You dont seem to have any credentials saved yet')
+                        print('\n')
 
 
 
