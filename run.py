@@ -75,5 +75,13 @@ def generate_password(psw_len):
     '''
 
     return "".join(secrets.choice(string.ascii_letters+string.digits) for i in range(psw_len))
-    
+
+def copy_credential(password):
+    '''
+    A function that allows copy and paste password to clipboard
+    '''
+
+    return Credentials.copy_password(password)
+
+
 
