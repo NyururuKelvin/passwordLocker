@@ -66,3 +66,14 @@ def display_credentials():
     '''
 
     return Credentials.display_credentials()
+
+def generate_password(psw_len):
+    '''
+    generate a new password
+    Args:
+    psw_len: preffered password length
+    '''
+
+    return "".join(secrets.choice(string.ascii_letters+string.digits) for i in range(psw_len))
+    
+
