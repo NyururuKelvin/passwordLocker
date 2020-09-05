@@ -103,7 +103,7 @@ def main():
 
             while logged_in:
                 print('\n')
-                print('Use these short codes : \n sc - save an already existing account credentials \n cc - create a new credential \n vc - view your credentials \n fc - find credentials \n copy - copy credentials \n ex - logout ')
+                print('Use these short codes : \n sc - save an already existing account credentials \n cc - create a new credential \n vc - view your credentials \n fc - find credentials \n dl - delete credential \n copy - copy credentials \n ex - logout ')
                 print('\n')
 
                 short_code = input().lower()
