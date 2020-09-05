@@ -132,6 +132,28 @@ def main():
                     else:
                         print('Invalid choice!')
 
+                    save_credentials(create_credentials(account, username, password))
+
+                    print(f'Account credentials for {account} has been saved, username: {username} password: {password}')
+                    print('\n')
+                elif short_code == 'sc':
+                    print('save an existing Credentials Account')
+                    print("-"*10)
+
+                    print(' Account ...')
+                    account = input()
+
+                    print(f'\n username ...')
+                    username = input()
+
+                    print('\n password ...')
+                    password = input()
+
+                    save_credentials(create_credentials(account, username, password)) # create & save new credentials.
+                    print('\n')
+                    print(f'{account} username: {username} password: {password} created successfully')
+                    print('-------------------------------------------------------------------------\n')
+
 
 
 
