@@ -83,5 +83,56 @@ def copy_credential(password):
 
     return Credentials.copy_password(password)
 
+def main():
+    print('Hello! Welcome to your Vault')
+    logged_in = False
+
+    while True:
+        print("Do you want to sign up or login?")
+        print("Click 's' to sign up or 'l' to login")
+        answer = input()
+
+        if answer == 'l':
+            print('Enter your username: ')
+            user_name = input()
+            print('Enter your password: ')
+            password = input()
+
+            logged_in = login(user_name, password) if answer == 'l' else False
+            
+
+            while logged_in:
+                print('\n')
+                print('Use these short codes : \n sc - save an already existing account credentials \n cc - create a new credential \n vc - view your credentials \n fc - find credentials \n copy - copy credentials \n ex - logout ')
+                print('\n')
+
+                short_code = input().lower()
+
+                if short_code == 'cc':
+                    print('Enter the name of the account you are creating')
+                    account = input()
+
+                    print('Enter the username: ')
+                    username = input()
+
+                    print('Password: ')
+                    print('Would you like us to automatically generate you a password? y/n')
+                    ps = input().lower()
+
+                    if ps == 'y':
+                        print('Enter your preferred password length')
+                        ps_len = int(input())
+                        password = generate_password(ps_len)
+                        print(f'Your new password for {account} is {password}')
+
+                    elif ps == 'n':
+                        print('Create your password: ')
+                        password = input()
+
+                    else:
+                        print('Invalid choice!')
+
+
+
 
 
